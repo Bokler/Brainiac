@@ -1,0 +1,41 @@
+{
+  "name": "Brainiac",
+  "version": "0.0.0",
+  "description": "Brainiac Screeps",
+  "author": "Maksym Makartsov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bokler/Brainiac.git"
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "lint": "tslint \"src/**/*.ts\"",
+    "clean": "rm -rf tsc-out && rm -rf dist",
+    "obfuscate": "tsc && javascript-obfuscator tsc-out/Overmind.js --output src/Overmind_obfuscated.js --compact false --self-defending true --string-array true --string-array-threshold 1 --string-array-encoding true && javascript-obfuscator tsc-out/assimilation/Assimilator.js --output src/assimilation/Assimilator_obfuscated.js --compact false --self-defending true --string-array true --string-array-threshold 1 --string-array-encoding true",
+    "compile": "rollup -c",
+    "push-main": "rollup -c --environment DEST:main",
+    "push-pserver": "rollup -c --environment DEST:pserver",
+    "push-screepsplus": "rollup -c --environment DEST:screepsplus",
+    "test": "npm run clean && npm run lint && npm run build"
+  },
+  "devDependencies": {
+    "@types/lodash": "3.10.1",
+    "@types/screeps": "2.5.4",
+    "rollup": "0.62.0",
+    "rollup-plugin-commonjs": "8.4.1",
+    "rollup-plugin-node-resolve": "3.3.0",
+    "rollup-plugin-progress": "^0.4.0",
+    "rollup-plugin-screeps": "0.1.2",
+    "rollup-plugin-typescript2": "0.16.1",
+    "tslint": "^5.16.0",
+    "typedoc": "^0.14.2",
+    "typescript": "2.9.2"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.1.2",
+    "columnify": "1.5.4",
+    "onnxjs": "^0.1.6",
+    "source-map": "0.7.3"
+  }
+}
